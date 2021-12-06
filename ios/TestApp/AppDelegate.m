@@ -1,5 +1,7 @@
 #import "AppDelegate.h"
-
+#if RCT_DEV //k added
+#import <React/RCTDevLoadingView.h>//k added
+#endif //k added
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
@@ -32,6 +34,10 @@ static void InitializeFlipper(UIApplication *application) {
 #endif
 
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
+#if RCT_DEV//k added
+[bridge moduleForClass:[RCTDevLoadingView class]];//k added
+#endif //k added
+  
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
                                                    moduleName:@"TestApp"
                                             initialProperties:nil];
@@ -47,6 +53,15 @@ static void InitializeFlipper(UIApplication *application) {
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+  //k added....
+  // Make sure the name matches the one used for the storyboard file
+    UIStoryboard *launchScreenStoryboard = [UIStoryboard storyboardWithName:@"LaunchScreen" bundle:nil];
+    // This must match the Storyboard ID we chose for our View Controller
+    UIViewController *launchScreenViewController = [launchScreenStoryboard instantiateViewControllerWithIdentifier:@"LaunchScreenViewController"];
+    UIView *launchScreenView = [launchScreenViewController view];
+    launchScreenView.frame = self.window.bounds;
+    rootView.loadingView = launchScreenView;
+  //k added upto ...
   return YES;
 }
 
