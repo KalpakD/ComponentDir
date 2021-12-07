@@ -1,6 +1,8 @@
 package com.testapp;
 
 import com.facebook.react.ReactActivity;
+import com.testapp.modules.SplashScreen.SplashScreenModule;
+
 import android.os.Bundle;
 
 public class MainActivity extends ReactActivity {
@@ -8,6 +10,8 @@ public class MainActivity extends ReactActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(null);
+//    setTheme(R.style.AppTheme);
+    SplashScreenModule.show(this);
   }
   /**
    * Returns the name of the main component registered from JavaScript. This is used to schedule
