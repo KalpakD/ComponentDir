@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, Modal, Image} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import {View, Text, Modal, Image, SafeAreaView} from 'react-native';
 import NetInfo from '@react-native-community/netinfo';
 import styles from './styles';
 
-const ToastView = () => {
+const NetworkToastView = () => {
   const [isNetworkAvailable, setNetworkAvailable] = useState(true);
   useEffect(() => {
     // Subscribe
@@ -33,4 +32,4 @@ const ToastView = () => {
   );
 };
 
-export default ToastView;
+export default NetworkToastView;
