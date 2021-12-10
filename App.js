@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import HomeScreen from './src/HomeScreen';
 import {NativeModules, Platform, StatusBar, SafeAreaView} from 'react-native';
 import NetworkToastView from './src/components/NetworkToastView';
+import HomeScreen from './src/screens/HomeScreen/HomeScreen';
 
 const Stack = createNativeStackNavigator();
 const STYLES = ['default', 'dark-content', 'light-content'];
